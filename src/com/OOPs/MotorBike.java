@@ -6,6 +6,8 @@ public class MotorBike {
     }
 
     public void setSpeed(int speed) {
+        if(speed>120 && speed<0)
+            return;
         this.speed = speed;
     }
 
@@ -14,6 +16,8 @@ public class MotorBike {
     }
 
     public void setGears(int gears) {
+        if (this.gears>5 && this.gears<0)
+            return ;
         this.gears = gears;
     }
 
@@ -29,32 +33,20 @@ public class MotorBike {
 
     }
 public void increaseSpeed(int speed){
-        if ((this.speed+speed)>120){
-            return;
-        }
-    this.speed+=speed;
+        this.setSpeed(this.speed+speed);
 }
 
 
     public void decreaseSpeed(int speed){
-        if ((this.speed-speed)<0){
-            return;
-        }
-        this.speed-=speed;
+        this.setSpeed(this.speed-speed);
 
     }
     public void increaseGears(int gears){
-        if ((this.gears+gears)<0){
-            return;
-        }
-        this.gears+=gears;
+        this.setGears(this.gears+gears);
 
     }
     public void decreaseGears(int gears){
-        if ((this.gears-gears)<0){
-            return;
-        }
-        this.gears-=gears;
+        this.setGears(this.gears-gears);
 
     }
 }
