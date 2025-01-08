@@ -1,8 +1,24 @@
 package com.OOPs;
 
 public class MotorBike {
-    public int speed;
-    public  int gears;
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getGears() {
+        return gears;
+    }
+
+    public void setGears(int gears) {
+        this.gears = gears;
+    }
+
+    private int speed;
+    private  int gears;
 
 
     public void start(){

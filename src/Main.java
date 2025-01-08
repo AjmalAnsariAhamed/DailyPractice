@@ -5,7 +5,8 @@ public class Main {
     public static void main(String[] args) {
 MotorBike duke = new MotorBike();
 duke.start();
-duke.speed=50;
-duke.gears=5;
+duke.setSpeed(50);
+duke.setGears(5);
+System.out.println(duke.getGears()+" "+duke.getSpeed());
     }
 }
