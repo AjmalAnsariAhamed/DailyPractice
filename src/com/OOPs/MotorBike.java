@@ -8,6 +8,7 @@ public class MotorBike {
     public void start(){
         this.speed=30;
         this.gears=1;
+        System.out.println("bike has started ");
 
 
     }
