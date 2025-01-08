@@ -8,5 +8,8 @@ duke.start();
 duke.setSpeed(50);
 duke.setGears(5);
 System.out.println(duke.getGears()+" "+duke.getSpeed());
+duke.increaseSpeed(50);;
+duke.decreaseSpeed(1);
+System.out.println(duke.getGears()+" "+duke.getSpeed());
     }
 }

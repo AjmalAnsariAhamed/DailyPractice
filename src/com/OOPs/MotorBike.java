@@ -28,6 +28,33 @@ public class MotorBike {
 
 
     }
+public void increaseSpeed(int speed){
+        if ((this.speed+speed)>120){
+            return;
+        }
+    this.speed+=speed;
+}
 
 
+    public void decreaseSpeed(int speed){
+        if ((this.speed-speed)<0){
+            return;
+        }
+        this.speed-=speed;
+
+    }
+    public void increaseGears(int gears){
+        if ((this.gears+gears)<0){
+            return;
+        }
+        this.gears+=gears;
+
+    }
+    public void decreaseGears(int gears){
+        if ((this.gears-gears)<0){
+            return;
+        }
+        this.gears-=gears;
+
+    }
 }
