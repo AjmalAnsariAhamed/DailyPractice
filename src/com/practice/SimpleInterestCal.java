@@ -3,16 +3,15 @@ package com.practice;
 import java.math.BigDecimal;
 
 public class SimpleInterestCal {
-    private String principle;
-    private String interest;
+    private BigDecimal principle;
+    private BigDecimal interest;
     public SimpleInterestCal(String principle, String interest){
-        this.principle=principle;
-        this.interest=interest;
+        this.principle=new BigDecimal(principle);
+        this.interest=new BigDecimal(interest);
 
     }
     public BigDecimal calculateSimpleInterest(int years){
-        BigDecimal forPrinciple= new BigDecimal(this.principle);
-        BigDecimal forInterest = new BigDecimal(this.interest);
-      return  (forPrinciple.multiply(forInterest)).multiply(new BigDecimal(years));
+
+      return  (principle.multiply(interest)).multiply(new BigDecimal(years));
     }
 }
