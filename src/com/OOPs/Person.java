@@ -5,7 +5,13 @@ public class Person {
     private String email;
     private String name;
     private String address;
-
+    Person(int phoneNumber,String name,String email,String address){
+        System.out.println("Person is called");
+        this.address=address;
+        this.name=name;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+    }
 
     public int getPhoneNumber() {
         return phoneNumber;
