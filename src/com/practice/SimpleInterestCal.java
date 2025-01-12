@@ -7,11 +7,14 @@ public class SimpleInterestCal {
     private BigDecimal interest;
     public SimpleInterestCal(String principle, String interest){
         this.principle=new BigDecimal(principle);
-        this.interest=new BigDecimal(interest);
+        this.interest=new BigDecimal(interest)
+                .divide(new BigDecimal(100));
 
     }
     public BigDecimal calculateSimpleInterest(int years){
 
-      return  (principle.multiply(interest)).multiply(new BigDecimal(years));
+      return  (principle
+              .multiply(interest))
+              .multiply(new BigDecimal(years));
     }
 }
