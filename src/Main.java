@@ -1,15 +1,19 @@
-import com.OOPs.MotorBike;
-import com.practice.Table;
+import com.OOPs.*;
+import com.practice.*;
+
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-MotorBike duke = new MotorBike();
-duke.start();
-duke.setSpeed(50);
-duke.setGears(5);
-System.out.println(duke.getGears()+" "+duke.getSpeed());
-duke.increaseSpeed(50);;
-duke.decreaseSpeed(1);
-System.out.println(duke.getGears()+" "+duke.getSpeed());
+       Book onePiece= new Book(1,"one piece","Eiichiro Oda");
+       onePiece.addReview(new Reviews(1,"the best fiction of my time ",5));
+       System.out.println(onePiece);
+
+       Book naruto = new Book(2,"naruto","Mashashi Kiishimoto");
+       naruto.addReview(new Reviews(1,"i deeply love this book the emotion the author has pulled of is realy good",4));
+
+        System.out.println(naruto);
+
     }
 }
