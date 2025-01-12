@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-     Student ramesh = new Student(1234,2,"k");
+     Student ramesh = new Student(1234,2,"KCDC",123,"zoro","email","wano");
 
     }
 }
