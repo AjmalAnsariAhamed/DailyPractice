@@ -2,8 +2,9 @@ package com.OOPs;
 
 
 public class Book {
-    private int pages;
-    String name;
-    int numberOfCopies;
+    private int id;
+    private String name;
+    private String Author;
+    private Reviews reviews;
 
 }
