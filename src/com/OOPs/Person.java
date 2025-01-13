@@ -50,4 +50,8 @@ public class Person {
     public void setAddress(String address) {
         this.address = address;
     }
+    public int Dupeshot(String s,int m){
+        System.out.println(s+"  parent "+m);
+        return 1;
+    }
 }

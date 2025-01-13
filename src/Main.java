@@ -1,13 +1,8 @@
-import com.OOPs.*;
-import com.OOPs.Student;
-import com.practice.*;
-
-import java.util.Arrays;
-import java.util.Scanner;
+import com.OOPs.Abstract.Recipe1;
 
 public class Main {
     public static void main(String[] args) {
-     Student ramesh = new Student(1234,2,"KCDC");
-
+        Recipe1 recipe= new Recipe1();
+        recipe.execute();
     }
 }

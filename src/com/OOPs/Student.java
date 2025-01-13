@@ -11,4 +11,11 @@ public class Student extends Person{
         this.year = year;
         this.college = college;
     }
+
+
+    public String Dupeshot(String m, int i,int s) {
+        System.out.println(s+" Child "+m);
+        return m;
+    }
+
 }
