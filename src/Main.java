@@ -1,20 +1,11 @@
+import com.OOPs.Abstract.AbstractRecipe;
 import com.OOPs.Abstract.Recipe1;
-import com.OOPs.Interfaces.Chess;
-import com.OOPs.Interfaces.Game;
-import com.OOPs.Interfaces.MarioGame;
+import com.OOPs.Interfaces.*;
 
 public class Main {
     public static void main(String[] args) {
-       Game game= new MarioGame();
-       Game chessGame= new Chess();
-       game.down();
-       game.up();
-       game.left();
-       game.right();
-        System.out.println("\t");
-        chessGame.down();
-        chessGame.up();
-        chessGame.left();
-        chessGame.right();
+        Flyable [] fly=new Flyable[]{new Bird(), new Aeroplane()};
+        fly[0].fly();
+        fly[1].fly();
     }
 }
