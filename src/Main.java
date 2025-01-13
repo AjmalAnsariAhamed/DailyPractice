@@ -1,11 +1,18 @@
-import com.OOPs.Abstract.AbstractRecipe;
-import com.OOPs.Abstract.Recipe1;
+import com.OOPs.Abstract.*;
 import com.OOPs.Interfaces.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Flyable [] fly=new Flyable[]{new Bird(), new Aeroplane()};
-        fly[0].fly();
-        fly[1].fly();
+       List<Animal> animal=new ArrayList<>();
+       animal.add(new Dog());
+       animal.add(new Cat());
+      for(Animal a:animal){
+
+          a.bark();
+      }
+
     }
 }
