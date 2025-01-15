@@ -1,8 +1,6 @@
 package com.Collection;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.*;
 
 public class BasicOpAL {
     public static void main(String args[]){
@@ -27,5 +25,17 @@ public class BasicOpAL {
         list1.removeIf(x-> (x%2)!=0);
 
         System.out.println(list1);
+
+        ArrayList<Integer> list2= new ArrayList(Arrays.asList(1,2,36,4,5,9,21));
+        Comparator<Integer> ascComparator= (x,y)->x-y;
+        Comparator<Integer> descComparator= (x,y)->y-x;
+        System.out.println(list2+"normal ordering");
+        list2.sort(ascComparator);
+        System.out.println(list2+"asc");
+        list2.sort(descComparator);
+        System.out.println(list2+"desc");
+
+
+
     }
 }

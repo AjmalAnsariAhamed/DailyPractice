@@ -10,12 +10,12 @@ public class ArrayList01 {
         // Arrays class java.util.Arrays$ArrayList not java.util.ArrayList
         //java.util.Arrays$ArrayList != java.util.ArrayList
         List<Integer> list = Arrays.asList(1,2,3,4);
-        ArrayList<Integer> arraysList=Arrays.asList(1,2,3);//error
+        //ArrayList<Integer> arraysList=Arrays.asList(1,2,3);//error
         //no add and remove only set will work
 
         //List.of
         List<Integer>list1= List.of(1,2,3);
-        ArrayList<Integer> listOfList=List.of(1,2,3);//error
+        //ArrayList<Integer> listOfList=List.of(1,2,3);//error
         // cant add, set and remove
 
         // the bestway
