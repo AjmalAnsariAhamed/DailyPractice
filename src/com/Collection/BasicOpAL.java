@@ -18,13 +18,7 @@ public class BasicOpAL {
 //           list1.remove(i);
 //       }
 //   }
-        Iterator<Integer> iterator= list1.iterator();
-        while(iterator.hasNext()){
-            Integer i =iterator.next();
-            if( i%2!=0){
-                iterator.remove();
-            }
-        }
+        list1.removeIf(x-> (x%2)!=0);
 
         System.out.println(list1);
 
