@@ -2,6 +2,8 @@ package com.Collection;
 
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class IdentityHashMapDemo {
     public static void main(String arg[]){
@@ -16,6 +18,11 @@ public class IdentityHashMapDemo {
 
         //{Luffy=Hito hito no mi} map1
         //{Luffy=Hito hito no mi, Luffy=Conquerors Haki} map2
+        //it doesnt uses the String's or ddefined hashcode
+        //it only uses the Object hashcode
+        System.out.println(System.identityHashCode(new String("Luffy") ) +"\t refernce\t"+System.identityHashCode(new String("Luffy") ));
+        System.out.println(Objects.hashCode(new String("Luffy"))+" content \t"+ Objects.hashCode(new String("Luffy")));
+
 
     }
 }
