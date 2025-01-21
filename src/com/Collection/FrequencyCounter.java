@@ -47,10 +47,27 @@ public class FrequencyCounter {
                 return v2-v1;
             }
         };
+
+        Comparator<String> properCustomComparator= new Comparator<>(){
+            @Override
+            public int compare(String s1,String s2){
+                Integer v1=hashMap1.get(s1);
+                Integer v2=hashMap1.get(s2);
+               int value =v2.compareTo(v1);
+               if(value==0){
+                   return s1.compareTo(s2);
+               }
+               return value;
+
+            }
+        };
+
         // when value of any strings(in Context of Frequent Count) are Equal lets say <K:Luffy,V:1>, <K:Zoro,V:1> then
         // when <V>value of luffy and zoro are equal it considers that both keys are Equal it does not keep both
         // <Luffy,1>,<Zoro,1> it keeps only one pair
-        TreeMap<String,Integer> treeMap= new TreeMap<>(customComparator);
+        //instead of customComparator i modified and made
+        //properCustomComparator
+        TreeMap<String,Integer> treeMap= new TreeMap<>(properCustomComparator);
         treeMap.putAll(hashMap1);
         System.out.println(" \n \n \t **********************");
         for(String str:treeMap.keySet()){
