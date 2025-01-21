@@ -38,6 +38,25 @@ public class FrequencyCounter {
             System.out.println(str+" : "+ hashMap1.get(str));
 
         }
+        Comparator<String> customComparator=new Comparator<>(){
+            @Override
+            public int compare(String o1,String o2){
+                Integer v1=hashMap1.get(o1);
+                Integer v2= hashMap1.get(o2);
+
+                return v2-v1;
+            }
+        };
+        // when value of any strings(in Context of Frequent Count) are Equal lets say <K:Luffy,V:1>, <K:Zoro,V:1> then
+        // when <V>value of luffy and zoro are equal it considers that both keys are Equal it does not keep both
+        // <Luffy,1>,<Zoro,1> it keeps only one pair
+        TreeMap<String,Integer> treeMap= new TreeMap<>(customComparator);
+        treeMap.putAll(hashMap1);
+        System.out.println(" \n \n \t **********************");
+        for(String str:treeMap.keySet()){
+            System.out.println(str+" : "+treeMap.get(str));
+        }
+        System.out.println(treeMap.size()+" hashMap size :"+hashMap1.size());
 
 
     }
