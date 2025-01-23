@@ -22,7 +22,7 @@ String hello2="hello2 from main";
             //hello2 is also in the interface but here in the main
             // i decalred hello2, it will overrides the interface's hello2;
             f.classMethod();
-            f2.classMethod();// error here the structure will of Interface but in Interface no
+            //f2.classMethod();// error here the structure will of Interface but in Interface no
             // method classMethod(); error
             f2.sayHello();//here sayHello is in the stucture of Interface
             //when we call it implementation class method will overrides
