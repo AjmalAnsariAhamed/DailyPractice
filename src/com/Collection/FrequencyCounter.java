@@ -27,6 +27,7 @@ public class FrequencyCounter {
                 "Warlords of the Sea who becomes their helmsman. Together, they encounter other pirates, bounty hunters, criminal organizations, revolutionaries, secret agents, scientists, " +
                 "soldiers of the morally ambiguous World Government, and various other friends and foes, as they sail the seas in pursuit of their dreams.";
         ArrayList<String> strList=new ArrayList<>(Arrays.asList(para.split(" ")));
+        //Arrays.stream(para.split).toList();
         HashMap<String,Integer> hashMap1=new HashMap<>();
         for (String str:strList){
             hashMap1.put(str, hashMap1.getOrDefault(str,0)+1);
