@@ -21,6 +21,8 @@ public class IdentityHashMapDemo {
         //it doesnt uses the String's or ddefined hashcode
         //it only uses the Object hashcode
         System.out.println(System.identityHashCode(new String("Luffy") ) +"\t refernce\t"+System.identityHashCode(new String("Luffy") ));
+        System.out.println(System.identityHashCode(new String("Luffy") ) +"\t 2nd refernce\t"+System.identityHashCode("Luffy" ));
+        System.out.println(System.identityHashCode("Luffy" ) +"\t without new refernce\t"+System.identityHashCode("Luffy" ));
         System.out.println(Objects.hashCode(new String("Luffy"))+" content \t"+ Objects.hashCode(new String("Luffy")));
         for (Map.Entry<String,String> entry:map2.entrySet()){
             System.out.println(entry.getKey()+" :\t"+entry.getValue());
