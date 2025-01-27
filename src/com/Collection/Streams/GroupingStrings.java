@@ -16,7 +16,8 @@ public class GroupingStrings {
                         ,HashMap::new
                         ,Collectors.toList()));
                         // Collectors.toList determines that the values for corresponding
-                        // keys shall be type pf list
+                        // keys shall be group names, list
+
 
     }
 }
