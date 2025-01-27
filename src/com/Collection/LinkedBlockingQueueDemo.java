@@ -8,26 +8,31 @@ public class LinkedBlockingQueueDemo {
         AtomicBoolean flag= new AtomicBoolean(true);
         LinkedBlockingQueue<String>calls=new LinkedBlockingQueue<>();
         Thread inComing=new Thread(()->{
+            try {
             for (int i=0;i<20;i++){
-                try {
+
                     calls.put("call number\t"+(i+1));
                     System.out.println("added "+(i+1));
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    Thread.sleep(500);
                 }
+                System.out.println("All calls are added");
+            flag.set(false);
+            }
+            catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
 
         });
         Thread consumer = new Thread(()->{
-            while(flag.get()){
+            while(flag.get() || !calls.isEmpty()){
                 try {
                     String liftCall=calls.take();
                     if(liftCall!=null){
                         System.out.println("lifted the call "+liftCall);
-
+Thread.sleep(500);
                     }
                 } catch (InterruptedException e) {
-                    flag.set(false);
+                    System.out.println(e);
                 }
             }
         });
