@@ -44,30 +44,26 @@ class Counter{
     private int counter=0;
     private Lock lock=new ReentrantLock();
     public void increment(){
-
-       try{
-           if(lock.tryLock(100, TimeUnit.MILLISECONDS)){
-               counter++;
-               try {
-                   Thread.sleep(10);
-                   //System.out.println(counter);
-               }catch (InterruptedException e){
-                   System.out.println("rror");
-                   Thread.currentThread().interrupt();
-               }
-
-           }
-
-
-       }
-       catch (Exception e){
-           System.out.println("rror");
-           Thread.currentThread().interrupt();
-
-       }finally {
-           lock.unlock();
-       }
-
+        boolean locked = false;
+        try {
+            locked = lock.tryLock(100, TimeUnit.MILLISECONDS);
+            if (locked) {
+                counter++;
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    System.out.println("Error");
+                    Thread.currentThread().interrupt();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error");
+            Thread.currentThread().interrupt();
+        } finally {
+            if (locked) { // Only unlock if lock was acquired
+                lock.unlock();
+            }
+        }
 
 
 
