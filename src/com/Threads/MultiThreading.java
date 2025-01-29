@@ -1,5 +1,8 @@
 package com.Threads;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class MultiThreading {
 
     public static void main(String[] args) throws InterruptedException {
@@ -38,10 +41,18 @@ public class MultiThreading {
 }
 class Counter{
     private int counter=0;
+    private Lock lock=new ReentrantLock();
     public void increment(){
-        synchronized(this){
-            counter++;
-        }
+       lock.lock();
+       try{
+           counter++;
+       }finally {
+           lock.unlock();
+       }
+
+
+
+
 
     }
     public int getCounter(){
