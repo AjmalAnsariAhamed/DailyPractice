@@ -1,5 +1,6 @@
 package com.Threads;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -43,9 +44,26 @@ class Counter{
     private int counter=0;
     private Lock lock=new ReentrantLock();
     public void increment(){
-       lock.lock();
+
        try{
-           counter++;
+           if(lock.tryLock(100, TimeUnit.MILLISECONDS)){
+               counter++;
+               try {
+                   Thread.sleep(10);
+                   //System.out.println(counter);
+               }catch (InterruptedException e){
+                   System.out.println("rror");
+                   Thread.currentThread().interrupt();
+               }
+
+           }
+
+
+       }
+       catch (Exception e){
+           System.out.println("rror");
+           Thread.currentThread().interrupt();
+
        }finally {
            lock.unlock();
        }
