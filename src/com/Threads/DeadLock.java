@@ -4,8 +4,8 @@ public class DeadLock {
     public static void main(String[] args) {
         Paper paper =new Paper();
         Pen pen=new Pen();
-        Thread t1 = new Thread(new Task1(paper,pen));
-        Thread t2 = new Thread(new Task2(paper,pen));
+        Thread t1 = new Thread(new Task1(paper,pen),"Thread 1");
+        Thread t2 = new Thread(new Task2(paper,pen),"Thread 2");
         t1.start();
         t2.start();
         try{
@@ -20,7 +20,7 @@ public class DeadLock {
 class Pen{
     public synchronized void writeWithPenAndPaper(Paper paper){
 
-            System.out.println(Thread.currentThread().getName()+"writing with pen and paper");
+            System.out.println(Thread.currentThread().getName()+" writing with pen and paper");
             paper.finishWriting();
 
 
@@ -32,7 +32,7 @@ class Pen{
 class Paper{
     public synchronized void writeWithPenAndPaper(Pen pen){
 
-            System.out.println(Thread.currentThread().getName()+"writing with pen and paper");
+            System.out.println(Thread.currentThread().getName()+" writing with pen and paper");
             pen.finishWriting();
 
 
@@ -68,6 +68,9 @@ class Task2 implements Runnable{
 
     @Override
     public void run() {
-        pen.writeWithPenAndPaper(paper);
+        synchronized (paper){
+            pen.writeWithPenAndPaper(paper);// only run if paper is free,
+        }
+
     }
 }
