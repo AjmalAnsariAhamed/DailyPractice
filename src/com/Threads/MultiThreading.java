@@ -12,7 +12,8 @@ public class MultiThreading {
 
             @Override
             public void run() {
-                for (int i=1;i<=1000;i++){
+                for (int i=1;i<=10;i++){
+                    System.out.println("A is running");
                     count.increment();
                 }
 
@@ -23,7 +24,9 @@ public class MultiThreading {
 
             @Override
             public void run() {
-                for (int i=1001;i<=2000;i++){
+
+                for (int i=11;i<=20;i++){
+                    System.out.println("B is running");
                     count.increment();
                 }
 
@@ -31,6 +34,7 @@ public class MultiThreading {
 
             }
         });
+        System.out.println("start");
         A.start();
         B.start();
         A.join();
@@ -44,28 +48,21 @@ class Counter{
     private int counter=0;
     private Lock lock=new ReentrantLock();
     public void increment(){
-        boolean locked = false;
-        try {
-            locked = lock.tryLock(100, TimeUnit.MILLISECONDS);
-            if (locked) {
-                counter++;
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    System.out.println("Error");
-                    Thread.currentThread().interrupt();
-                }
+        try{
+            lock.lockInterruptibly();
+            counter++;
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                System.out.println("Error");
+                Thread.currentThread().interrupt();
             }
-        } catch (Exception e) {
-            System.out.println("Error");
-            Thread.currentThread().interrupt();
-        } finally {
-            if (locked) { // Only unlock if lock was acquired
-                lock.unlock();
-            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
-
-
+        finally {
+            lock.unlock();
+        }
 
 
     }
