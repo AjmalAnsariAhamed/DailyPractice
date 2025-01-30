@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 class Counter1{
-    private ReadWriteLock lock= new ReentrantReadWriteLock(true);
+    private ReadWriteLock lock= new ReentrantReadWriteLock();
     private Lock writeLock= lock.writeLock();
     private Lock readLock= lock.readLock();
     private int  counter=0;
@@ -69,46 +69,46 @@ public class ReadAndWriteLock {
         }catch(InterruptedException e){
             System.out.println("Interrupted");
         }
-        //r1 : 1
-//r2 :1
-//r2 :2
-//r1 : 2
-//r2 :3
-//r1 : 3
-//r2 :4
-//r1 : 4
-//r1 : 5
-//r2 :5
-//r1 : 6
-//r2 :6
-//r2 :7
-//r1 : 7
-//r2 :8
-//r1 : 8
-//r2 :9
-//r1 : 9
-//r2 :10
-//r1 : 10
-//r2 :11
-//r1 : 11
-//r2 :12
-//r1 : 12
-//r1 : 13
-//r2 :13
-//r2 :14
-//r1 : 14
-//r2 :15
-//r1 : 15
-//r2 :16
-//r1 : 16
-//r2 :17
-//r1 : 17
-//r2 :18
-//r1 : 18
-//r2 :19
-//r1 : 19
-//r2 :20
-//r1 : 20
+//        r2 :20
+//        r1 : 20
+//        r2 :20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r2 :20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r2 :20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r1 : 20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
+//        r2 :20
 
 
     }
