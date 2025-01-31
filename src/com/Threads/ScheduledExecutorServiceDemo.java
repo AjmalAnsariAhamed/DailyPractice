@@ -8,12 +8,17 @@ import java.util.concurrent.TimeUnit;
 public class ScheduledExecutorServiceDemo {
     public static void main(String[] args) {
         ScheduledExecutorService service= Executors.newScheduledThreadPool(2);
-        service.scheduleAtFixedRate(()->{
+        service.scheduleWithFixedDelay(()->{
 
             System.out.println("task execution after 5 minutes");
+            try {
+                Thread.sleep(3);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            };
 
         },0,4, TimeUnit.MILLISECONDS );
-        service.scheduleAtFixedRate(()->{
+        service.scheduleWithFixedDelay(()->{
 
             System.out.println("2nd task execution after 5 minutes");
             try {
@@ -24,7 +29,7 @@ public class ScheduledExecutorServiceDemo {
         },0,4, TimeUnit.NANOSECONDS );
 // for stopping shutdown |
         //               V
-        service.schedule(()->service.shutdown(),5,TimeUnit.NANOSECONDS);
+        service.schedule(()->service.shutdown(),4,TimeUnit.NANOSECONDS);
 
 
 
