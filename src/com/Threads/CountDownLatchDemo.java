@@ -6,24 +6,26 @@ public class CountDownLatchDemo {
     public static void main(String[] args) throws InterruptedException {
         int numberOFServices=3;
         ExecutorService exe= Executors.newFixedThreadPool(numberOFServices);
-        CountDownLatch latch= new CountDownLatch(numberOFServices);
-        latch.countDown();
+        CyclicBarrier latch= new CyclicBarrier(numberOFServices);
+
         exe.submit(new DependentService(latch));
         exe.submit(new DependentService(latch));
 
         exe.submit(new DependentService(latch));
 
-        latch.await(5, TimeUnit.SECONDS);
+        //latch.await(5, TimeUnit.SECONDS);
         //latch.await();
         System.out.println("Main");
+        System.out.println(latch.getParties());
         exe.shutdown();
+
     }
 
 }
 class DependentService implements Callable<String>{
-    private CountDownLatch latch;
+    private CyclicBarrier latch;
 
-    public DependentService(CountDownLatch latch) {
+    public DependentService(CyclicBarrier latch) {
         this.latch = latch;
     }
 
@@ -35,7 +37,7 @@ class DependentService implements Callable<String>{
 
         }finally{
 
-            latch.countDown();
+            latch.await();
         }
 
         return "success";
