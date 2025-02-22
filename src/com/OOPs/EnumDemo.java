@@ -2,6 +2,7 @@ package com.OOPs;
 
 
 import java.sql.SQLOutput;
+import java.util.stream.Stream;
 
 public class EnumDemo {
   public static enum days{MONDAY,TUESDAY,WEDNESDAY};
